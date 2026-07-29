@@ -53,3 +53,19 @@ document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el))
 
 // Year
 document.getElementById('year').textContent = new Date().getFullYear();
+
+
+/* ===========================
+   HERO PARALLAX
+=========================== */
+
+const heroBg = document.querySelector(".hero__bg");
+
+window.addEventListener("scroll", () => {
+
+    const scroll = window.pageYOffset;
+
+    heroBg.style.transform =
+        `translateY(${scroll * 0.35}px) scale(1.12)`;
+
+}, { passive:true });

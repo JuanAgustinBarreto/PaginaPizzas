@@ -86,8 +86,47 @@ h3{font-size:1.5rem;letter-spacing:.04em}
 
 /* ====== HERO ====== */
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
-.hero__bg{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.1);animation:zoom 20s ease-in-out infinite alternate}
+.hero__bg{
+    position:absolute;
+    inset:0;
+
+    background-size:cover;
+    background-position:center;
+
+    transform:translateY(0) scale(1.12);
+
+    will-change:transform;
+
+    transition:transform .08s linear;
+
+    animation:zoom 18s ease-in-out infinite alternate;
+}
 @keyframes zoom{to{transform:scale(1.2)}}
+.hero__title{
+
+    animation:heroTitle .9s ease forwards;
+
+}
+
+@keyframes heroTitle{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(35px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
 .hero__overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,13,.85) 0%,rgba(11,11,13,.6) 40%,rgba(11,11,13,.95) 100%)}
 .hero__content{position:relative;z-index:2;padding:120px 24px 80px;text-align:center;max-width:900px}
 .hero__title{font-size:clamp(3.5rem,10vw,7rem);margin-bottom:24px;text-shadow:0 4px 30px rgba(0,0,0,.5)}
@@ -96,7 +135,42 @@ h3{font-size:1.5rem;letter-spacing:.04em}
 .hero__trust{margin-bottom:48px}
 .hero__meta{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;padding-top:36px;border-top:1px solid var(--border)}
 .hero__meta div{display:flex;flex-direction:column}
-.hero__meta strong{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--primary-2)}
+.hero__meta strong{
+
+    position:relative;
+
+}
+
+.hero__meta strong::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.45),
+        transparent
+    );
+
+    transform:translateX(-180%);
+
+    animation:shine 5s infinite;
+
+}
+
+@keyframes shine{
+
+    100%{
+
+        transform:translateX(180%);
+
+    }
+
+}
 .hero__meta span{font-size:.78rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
 .hero__scroll{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:2;font-size:1.5rem;color:var(--muted);animation:bounce 2s infinite}
 @keyframes bounce{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,10px)}}
