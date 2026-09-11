@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://biencriollopizzas.vercel.app/sitemap.xml
